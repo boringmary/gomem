@@ -1,0 +1,12 @@
+syntax = "proto3";
+package engine;
+
+option go_package = "gomem/mservices/engine";
+import "google/protobuf/empty.proto";
+
+
+service Engine {
+  rpc GetMessages (google.protobuf.Empty) returns (MessageResponse) {}
+}
+
+message MessageResponse{}
