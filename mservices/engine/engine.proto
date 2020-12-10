@@ -1,12 +1,22 @@
 syntax = "proto3";
 package engine;
 
-option go_package = "gomem/mservices/engine";
-import "google/protobuf/empty.proto";
+option go_package = "mservices/engine";
 
 
 service Engine {
-  rpc GetMessages (google.protobuf.Empty) returns (MessageResponse) {}
+  rpc CalcInterval (CalcRequest) returns (CalcResponse) {}
 }
 
-message MessageResponse{}
+message CalcRequest {
+  int32 quality = 1;
+  int32 repetitions = 2;
+  int32 previousInterval = 3;
+  double previousEasyFactor = 4;
+}
+
+message CalcResponse {
+  int32 interval = 1;
+  int32 repetitions = 2;
+  double easyFactor = 3;
+}

@@ -6,7 +6,7 @@ import (
 	"github.com/pkg/errors"
 	"google.golang.org/grpc"
 
-	"github.com/boringmary/gomem/gen/gomem/mservices/engine"
+	"github.com/boringmary/gomem/gen/mservices/engine"
 	)
 
 type Engine struct {
@@ -16,19 +16,18 @@ type config struct {
 }
 
 type Dependences struct {
-	Registrar *grpc.Server
+	Registrator *grpc.Server
 	GrpcConn  *grpc.ClientConn
 }
 
-func NewEngine(dep Dependences) (engine.EngineClient, error) {
+func NewEngine(dep Dependences) (error) {
 	cfg := config{}
 	if err := env.Parse(&cfg); err != nil {
-		return nil, errors.WithStack(err)
+		return errors.WithStack(err)
 	}
 
 	en := &Engine{}
+	engine.RegisterEngineServer(dep.Registrator, en)
 
-	engine.RegisterEngineServer(dep.Registrar, en)
-
-	return engine.NewEngineClient(dep.GrpcConn), nil
+	return nil
 }

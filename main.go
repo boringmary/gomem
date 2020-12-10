@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"github.com/boringmary/gomem/mservices/engine"
 	"github.com/boringmary/gomem/mservices/server"
 )
@@ -17,15 +16,13 @@ func main() {
 		panic(err)
 	}
 
-	engineCLi, err := engine.NewEngine(engine.Dependences{
-		Registrar: srv.RpcServer,
+	err = engine.NewEngine(engine.Dependences{
+		Registrator: srv.RpcServer,
 		GrpcConn:  grpcConn,
 	})
 	if err != nil {
 		panic(err)
 	}
-
-	fmt.Println(engineCLi)
 
 
 	if err := srv.Serve(); err != nil {
