@@ -3,6 +3,7 @@ package server
 import (
 	"context"
 	"github.com/caarlos0/env/v6"
+	"google.golang.org/grpc/reflection"
 	"net"
 	"runtime/debug"
 
@@ -18,6 +19,7 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
+
 )
 
 type config struct {
@@ -81,6 +83,9 @@ func NewServer() (*Server, error) {
 			grpcRecovery.StreamServerInterceptor(grpcRecovery.WithRecoveryHandler(srv.recover)),
 		)),
 	)
+
+	/// Reflection is for testing purposes
+	reflection.Register(srv.RpcServer)
 
 	return srv, nil
 }
