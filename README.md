@@ -30,9 +30,11 @@ If interval is a fraction, round it up to the nearest integer.
     - 0 - complete blackout.
    ```
 5. After each repetition modify the E-Factor of the recently repeated item according to the formula:
+
 ```
 EF':=EF+(0.1-(5-q)*(0.08+(5-q)*0.02))
 ```
+
 ```
     where:
     EF' - new value of the E-Factor,
