@@ -16,9 +16,12 @@ I(1):=1
 I(2):=6
 for n>2: I(n):=I(n-1)*EF
 ```
+```
     where:
     I(n) - inter-repetition interval after the n-th repetition (in days),
     EF - E-Factor of a given item
+```
+
 If interval is a fraction, round it up to the nearest integer.
 4. After each repetition assess the quality of repetition response in 0-5 grade scale:
     ```
