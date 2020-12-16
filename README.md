@@ -24,14 +24,14 @@ for n>2: I(n):=I(n-1)*EF
 
 If interval is a fraction, round it up to the nearest integer.
 4. After each repetition assess the quality of repetition response in 0-5 grade scale:
-    ```
+```
     - 5 - perfect response
     - 4 - correct response after a hesitation
     - 3 - correct response recalled with serious difficulty
     - 2 - incorrect response; where the correct one seemed easy to recall
     - 1 - incorrect response; the correct one remembered
     - 0 - complete blackout.
-   ```
+```
 5. After each repetition modify the E-Factor of the recently repeated item according to the formula:
 
 ```
