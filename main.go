@@ -1,9 +1,10 @@
 package main
 
 import (
+	"fmt"
+	"github.com/boringmary/gomem/mservices/card"
 	"github.com/boringmary/gomem/mservices/engine"
 	"github.com/boringmary/gomem/mservices/server"
-
 )
 
 func main() {
@@ -22,11 +23,17 @@ func main() {
 		GrpcConn:  grpcConn,
 	})
 	if err != nil {
+		fmt.Println(err)
 		panic(err)
 	}
 
-
-
+	err = card.NewCard(card.Dependences{
+		Registrator: srv.RpcServer,
+		GrpcConn:  grpcConn,
+	})
+	if err != nil {
+		panic(err)
+	}
 
 	if err := srv.Serve(); err != nil {
 		panic(err)

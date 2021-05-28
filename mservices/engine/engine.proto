@@ -8,6 +8,8 @@ service Engine {
   rpc CalcInterval (CalcRequest) returns (CalcResponse) {}
 }
 
+message Empty{}
+
 message CalcRequest {
   int32 quality = 1;
   int32 repetitions = 2;

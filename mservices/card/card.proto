@@ -1,0 +1,22 @@
+syntax = "proto3";
+package card;
+
+option go_package = "mservices/card";
+
+service CardSrv {
+  rpc GetCards (Empty) returns (CardsResponse) {}
+}
+
+message Empty{}
+
+message Card {
+  string question = 1;
+  string answer = 2;
+  int32 interval = 3;
+  int32 repetitions = 4;
+  double eFactor = 5;
+}
+
+message CardsResponse {
+  repeated Card cards = 1;
+}

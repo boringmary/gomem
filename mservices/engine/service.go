@@ -1,13 +1,11 @@
 package engine
 
 import (
-
+	"github.com/boringmary/gomem/gen/mservices/engine"
 	"github.com/caarlos0/env/v6"
 	"github.com/pkg/errors"
 	"google.golang.org/grpc"
-
-	"github.com/boringmary/gomem/gen/mservices/engine"
-	)
+)
 
 type Engine struct {
 }
@@ -20,7 +18,8 @@ type Dependences struct {
 	GrpcConn  *grpc.ClientConn
 }
 
-func NewEngine(dep Dependences) (error) {
+
+func NewEngine(dep Dependences) error {
 	cfg := config{}
 	if err := env.Parse(&cfg); err != nil {
 		return errors.WithStack(err)
