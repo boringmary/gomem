@@ -7,7 +7,7 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 )
 
-func (crd CardSrv) GetCards(ctx context.Context, _ *cardGen.Empty) (*cardGen.CardsResponse, error) {
+func (crd CardSrv) GetAll(ctx context.Context, _ *cardGen.Empty) (*cardGen.CardsResponse, error) {
 
 	collection := crd.mongoCli.Database(crd.cfg.MongoDB).Collection(crd.cfg.MongoCardCollection)
 

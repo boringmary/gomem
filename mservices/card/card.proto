@@ -3,8 +3,11 @@ package card;
 
 option go_package = "mservices/card";
 
+import "google/protobuf/empty.proto";
+
 service CardSrv {
-  rpc GetCards (Empty) returns (CardsResponse) {}
+  rpc GetAll (Empty) returns (CardsResponse) {}
+  rpc Create (Card) returns (google.protobuf.Empty) {}
 }
 
 message Empty{}
