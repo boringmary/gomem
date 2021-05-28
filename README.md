@@ -16,23 +16,28 @@ I(1):=1
 I(2):=6
 for n>2: I(n):=I(n-1)*EF
 ```
+```
     where:
     I(n) - inter-repetition interval after the n-th repetition (in days),
     EF - E-Factor of a given item
+```
+
 If interval is a fraction, round it up to the nearest integer.
 4. After each repetition assess the quality of repetition response in 0-5 grade scale:
-    ```
+```
     - 5 - perfect response
     - 4 - correct response after a hesitation
     - 3 - correct response recalled with serious difficulty
     - 2 - incorrect response; where the correct one seemed easy to recall
     - 1 - incorrect response; the correct one remembered
     - 0 - complete blackout.
-   ```
+```
 5. After each repetition modify the E-Factor of the recently repeated item according to the formula:
+
 ```
 EF':=EF+(0.1-(5-q)*(0.08+(5-q)*0.02))
 ```
+
 ```
     where:
     EF' - new value of the E-Factor,
